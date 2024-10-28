@@ -3,36 +3,44 @@ import { HighlightDirective } from './customDirective';
 import { colorCustomDirective } from './colorCustomDirective';
 import { HostBindingDirective } from './hostBindingDirective';
 import {
-  FormControlDirective,
-  FormControlName,
-  NgForm,
-  NgModel,
   FormGroup,
   FormControl,
-  FormGroupDirective,
-  FormArray,
   Validators,
   ReactiveFormsModule,
-  FormBuilder,
+  FormsModule,
 } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { Router } from '@angular/router';
+import { LayoutComponent } from '../layout/layout.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, MaterialModule],
+  imports: [ReactiveFormsModule, MaterialModule, FormsModule,LayoutComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  loginForm: FormGroup = new FormGroup({
-    email: new FormControl('', [
-      Validators.required,
-      Validators.email,
-    ]),
-  });
+
+  constructor(private router:Router){}
+
+    emailInputField = new FormControl('',[Validators.required, Validators.email])
+    passwordField = new FormControl('',[Validators.required, Validators.minLength(4)])
+
+   loginForm:FormGroup  = new FormGroup({
+
+    email : this.emailInputField,
+    password : this.passwordField
+
+   })
+
+   
 
   submitForm() {
-    console.log(this.loginForm.value);
+    if(this.loginForm.valid){
+      console.log(this.loginForm.value);
+      this.router.navigate(['/layout'])
+    }
+    
   }
 }

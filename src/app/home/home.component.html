@@ -1,1 +1,13 @@
-<p>{{'homeTitle'|titlcase}}</p>
+<h4> {{homeTitle | lowercase}} </h4>
+<p>{{'this is home component'| titlecase}}</p>
+<p>Today Date is {{currentDate | date}}</p>
+
+<p>Today Date is {{currentDate | date:'fullDate'}}</p>
+
+
+<p>Today Date is {{currentDate | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+
+<p>converting the person object to Json Data</p>
+<p>{{person|json }}  </p>
+
+<button>encapsulation</button>

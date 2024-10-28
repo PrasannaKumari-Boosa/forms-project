@@ -1,28 +1,45 @@
 
 <div class="container">
     <mat-card class="form-card">
-    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+    <form  [formGroup]="loginForm" (ngSubmit)="submitForm()">
         <h2>Login Form</h2>
         <mat-form-field class="email-field">
             <mat-label> Email</mat-label>
             <input 
+            type="email"
               matInput
-              placeholder="pat@example.com"
-              FormControlName="email"
+              placeholder="abc@gmail.com"
+              [formControl]="emailInputField"
               name="email"
               id="email"/>
               <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              @if (emailInputField.hasError('required')) {
+                <mat-error>Email Field is required</mat-error>
+              }
+              @if (emailInputField.hasError('email')) {
+                <mat-error>Please enter a valid Email Address</mat-error>
+              }
+           
           </mat-form-field>
           <mat-form-field class="email-field">
             <mat-label>Password</mat-label>
             <input 
               matInput
               placeholder="pat@example.com"
-              FormControlName="password"
+              [formControl]="passwordField"
               name="password"
               id="password"
               required/>
-              
+              @if(passwordField.hasError('required')) {
+                <mat-error>
+                    Password is required
+                </mat-error>
+              }
+              @if(passwordField.hasError('minlength')) {
+                <mat-error>
+                    Minimum 4 characters required
+                </mat-error>
+              }
           </mat-form-field>
           <div class="button m-3 pb-4">
             <button type="submit" mat-raised-button class="btn btn-lg" [disabled]="!loginForm.valid" >Login</button>

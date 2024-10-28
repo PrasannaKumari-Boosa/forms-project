@@ -3,30 +3,41 @@
     <mat-card class="form-card">
     <form action="">
         <h2>SignUp Form</h2>
-        <mat-form-field class="email-field">
+        <mat-form-field class="formFields">
+          <mat-label> Name</mat-label>
+          <input 
+            matInput
+            placeholder="pat@example.com"
+            FormControl="email"
+            required/>
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="formFields">
             <mat-label> Email</mat-label>
             <input 
               matInput
               placeholder="pat@example.com"
               FormControl="email"
               required/>
-              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
-          <mat-form-field class="email-field">
+          <mat-form-field class="formFields">
             <mat-label>Password</mat-label>
             <input 
               matInput
               placeholder="pat@example.com"
               FormControl="password"
               required/>
+              <mat-icon matSuffix>password</mat-icon>
           </mat-form-field>
-          <mat-form-field class="email-field">
+          <mat-form-field class="formFields">
             <mat-label>Confirm Password</mat-label>
             <input 
               matInput
               placeholder="pat@example.com"
               FormControl="confirmPassword"
               required/>
+              <mat-icon matSuffix>lock</mat-icon>
           </mat-form-field>
           <div class="button m-3 pb-4">
             <button mat-raised-button class="btn btn-lg">Signup</button>
