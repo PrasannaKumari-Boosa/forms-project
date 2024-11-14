@@ -1,0 +1,33 @@
+<form [formGroup]="myform" (ngSubmit)="onSubmit()">
+  <div *ngFor="let field of fields" class="RegisterForm">
+  <mat-form-field>
+      <mat-label>{{ field.label }}</mat-label>
+      <input matInput
+        *ngIf="field.type !== 'checkbox'"
+        [type]="field.type"
+        [formControlName]="field.name"
+      />
+    </mat-form-field>
+
+      <mat-checkbox *ngIf="field.type === 'checkbox'"
+      type="checkbox"
+      [formControlName]="field.name">{{ field.label }}
+    </mat-checkbox>
+
+    <!-- Error Messages -->
+    <mat-error *ngIf="myform.get(field.name)?.invalid && myform.get(field.name)?.touched">
+      <span *ngIf="myform.get(field.name)?.errors?.['required']">{{ field.label }} is required</span>
+      <span *ngIf="myform.get(field.name)?.errors?.['maxlength']">{{ field.label }} exceeds max length of {{ field.maxLength }}</span>
+      <span *ngIf="myform.get(field.name)?.errors?.['minlength']">{{ field.label }} must be at least {{ field.minLength }} characters</span>
+      <span *ngIf="myform.get(field.name)?.errors?.['pattern']">{{ field.label }} format is invalid</span>
+    </mat-error>
+</div>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="!myform.valid"
+  >
+    Submit
+  </button>
+</form>
