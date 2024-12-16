@@ -11,12 +11,11 @@ import {
 } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { Router } from '@angular/router';
-import { LayoutComponent } from '../layout/layout.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, MaterialModule, FormsModule,LayoutComponent],
+  imports: [ReactiveFormsModule, MaterialModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -34,13 +33,12 @@ export class LoginComponent {
 
    })
 
-   
+
 
   submitForm() {
     if(this.loginForm.valid){
       console.log(this.loginForm.value);
-      this.router.navigate(['/layout'])
     }
-    
+
   }
 }

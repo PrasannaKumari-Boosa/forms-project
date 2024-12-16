@@ -1,0 +1,18 @@
+.container {
+  border: 2px solid white;
+  max-width: 700px;
+}
+.error {
+  color: red;
+  margin-top: 5px;
+  font-size: 0.9rem
+}
+.labelText {
+  font-size: 1rem;
+}
+.progress-bar {
+  color: #e8ebee;
+}
+.progress-bar-inner {
+  background-color: #007bff;
+}

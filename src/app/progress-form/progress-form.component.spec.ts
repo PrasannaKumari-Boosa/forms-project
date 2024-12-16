@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LayoutComponent } from './layout.component';
+import { ProgressFormComponent } from './progress-form.component';
 
-describe('LayoutComponent', () => {
-  let component: LayoutComponent;
-  let fixture: ComponentFixture<LayoutComponent>;
+describe('ProgressFormComponent', () => {
+  let component: ProgressFormComponent;
+  let fixture: ComponentFixture<ProgressFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LayoutComponent]
+      imports: [ProgressFormComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(LayoutComponent);
+
+    fixture = TestBed.createComponent(ProgressFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

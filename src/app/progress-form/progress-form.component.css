@@ -1,0 +1,19 @@
+.form-ProgressBar-Wrapper {
+  color: #e8ebee;
+}
+.form-Progress-Bar {
+  color: #007bff;
+}
+.container {
+  margin: 20px;
+  padding: 20px;
+  width: 500px;
+}
+p{
+  float: left;
+}
+.error {
+  color: red;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
